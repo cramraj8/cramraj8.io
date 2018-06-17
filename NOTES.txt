@@ -1,0 +1,66 @@
+
+
+
+DATABASE
+|
+|--- Patients
+        |
+        |--- <patientID-1>
+        |        |
+        |        |---- details
+        |        |---- image meta data
+        |
+        |--- <patientID-2>
+        |        |
+        |        |---- details
+        |        |---- image meta data
+        |
+        |--- <patientID-3>
+
+
+'Patients' + patient_id.value + 'RGB_meta/'
+
+
+STORAGE
+|
+|--- Patients
+        |
+        |--- <patient_id-1>
+        |       |
+        |       |--- thermal_image_patientid1
+        |       |--- rgb_image_patientid1
+        |
+        |--- <patient_id-2>
+        |       |
+        |       |--- thermal_image_patientid2
+        |       |--- rgb_image_patientid2
+        |
+        |--- <patient_id-3>
+        |       |
+        |       |--- thermal_image_patientid3
+        |       |--- rgb_image_patientid3
+
+
+
+
+patient_id
+    thermal_image
+    rgb_image
+
+thermal_images
+    patient_id
+        thermal_image
+        rgb_image
+
+STORAGE
+|
+|--- Patients
+        |
+        |--- ThermalImage
+        |       |
+        |       |--- <>
+        |
+        |
+        |
+
+

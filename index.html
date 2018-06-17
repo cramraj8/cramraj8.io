@@ -1,337 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>IOT LAMP PROJECT BY GROUP 13</title>
-        <meta name="description" content="Download free Bootstrap 4 product landing page template Comply." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--Bootstrap 4-->
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <!--icons-->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Download Button full of Micro Interactions</title>
-        <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/demo.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Diabetic Medical System</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-    </head>
-<!--------------------------------------------------------------------------------------->
-    <body>
+  <link rel="stylesheet" href="form_submit/style.css">
+
+  <link rel="stylesheet" href="combine_css.css">
+
+</head>
+
+<body>
 
 
+  <div class="container">
+    <h1 class="brand"><span>Medical System</span> Web Interface</h1>
+    <div class="wrapper">
+      <div class="company-info">
+        <h3>Diabetic Ulcer Management System</h3>
+        <ul>
+          <li><i class="fa fa-road"></i> 22 Something st</li>
+          <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+          <li><i class="fa fa-envelope"></i> dfu@gmail.com</li>
+        </ul>
+
+        <div id="logout_btn_id" class="logout-div">
+        <button onclick="logout()">Logout</button>
+        </div>
 
 
-        <!--header-->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="ion-grid icon-sm"></span>
-            </button>
-            <a class="navbar-brand hero-heading" href="#">GROUP 13</a>
+      </div>
+      <div class="contact">
 
-        </nav>
+<!-- ================================================================================= -->
 
-        <!--main section-->
-        <section class="bg-texture hero" id="main">
-            <div class="container">
-                <div class="row d-md-flex brand">
-                    <div class="col-md-6 hidden-sm-down wow fadeIn">
-                        <img class="img-fluid mx-auto d-block" id="lamp_img" src="/img/lamp_image.jpg"/>
-                    </div>
+              <!-- Upload Data -->
 
+      <div id="image_upload_div" align="center" class="main-div">
+          <progress value="0" max="100" id="uploader">0%</progress>
+          <br/>
+          <!-- <input type="file" name="upload" id="fileButton" style="margin-right: auto; margin-left: auto;"/> -->
+          <input type="file" name="upload" id="fileButton"/>
+      </div>
 
+<!-- ================================================================================= -->
 
-                    <div class="col-md-6 col-sm-12 text-white wow fadeIn">
-                        <h2 class="pt-4">Light up the<b class="text-primary-light"> Internet of Things </b> Oil Lamp</h2>
-        <!--                 <p class="mt-5">
-                            The best gets even better. You can access the IoT enabled Oil Lamp from anywhere in world. Light it up instantly !!
-                        </p> -->
-                        <p class="mt-5">
-<!--                             <a href="#" onClick="myButtonWasClicked()" class="btn btn-primary mr-2 mb-2 page-scroll">Turn ON</a> -->
-                     <!--        <a href="#" class="btn btn-white mb-2 page-scroll">Turn OFF</a> -->
+            <!-- Pull Image From database -->
 
-                        <div class="ffff" ßstyle="height: 20px, width: 20px; background-color: green"></div>
-
-                        </p>
-                    </div>
-
-<!-- =====================================================================================
-===================================================================================== -->
-<div class="main-button-container" style="margin-top:160px;">
-
-
-    <div class="bulb-selection" style="    position: absolute;
-    left: 60%;
-    top: 340px; ">
+    <div id="image_visualize_div">
+        <!-- <input type="button" value ="viewimage" id="viewbtn" onclick="showimage();"> -->
+        <!-- <input type="button" value ="view_image" id="viewImage_btn"> -->
+        <!-- <img src="test" height="125px" width="200px"/> -->
+        <img id="img_source" class="imageContainer" height="150px" width="300px"/>
+    </div>
 
 
 
+<!-- ================================================================================= -->
+
+    <!-- ----------------------------------------------------------------------- -->
+
+      <!-- This is the beginning of login block -->
+        <div id="login_div" class="main-div">
+          <h3>DFU info Web login Example</h3>
+          <input type="email" placeholder="Email..." id="email_field" />
+          <input type="password" placeholder="Password..." id="password_field" />
+
+          <button onclick="login()">Login to Account</button>
+        </div>
+
+    <!-- ----------------------------------------------------------------------- -->
+
+        <div id="user_div" class="loggedin-div">
+          <h3>Welcome User</h3>
+          <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+
+          <!-- editing -->
+
+          <!-- <a href="submit_form.html"> <button onclick="user_entry()">User Entry</button> </a>
+          <br/> -->
+          <button id="user_entry_btn">User Entry</button>
+          <br/>
+
+          <button id="data_vis_btn">Visualize Image Data</button>
+          <br/>
+
+          <!-- end of editing -->
+
+          <!-- <button onclick="logout()">Logout</button> -->
+        </div>
+
+        <!-- This is the end of login block -->
+<!-- ================================================================================= -->
+
+        <!-- Beginning of User Entry form -->
+        <h3 id=entry_form_name>Patient Data</h3>
+        <div class="alert">Your message has been sent</div>
+        <form id="contactForm">
+
+          <br/>
+          <br/>
+          <p class="full">
+            <button type="submit" id="pull_visuals_btn">Pull Image</button>
+          </p>
+          <br/>
+
+          <!-- Basic Data -->
+          <div id="primary_key">
+          <p>
+            <label>Patient ID</label>
+            <input type="text" name="patient_id" id="patient_id" required>
+          </p>
+          </div>
+
+          <p>
+            <label>Full Name</label>
+            <input type="text" name="fullname" id="fullname">
+          </p>
+          <p>
+            <label>Address</label>
+            <input type="text" name="address" id="address">
+          </p>
+          <p>
+            <label>Age</label>
+            <input type="number" name="age" id="age">
+          </p>
+          <p>
+            <label>Date of first visit</label>
+            <input type="date" name="date_of_first_visit" id="date_of_first_visit">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email" id="email">
+          </p>
+          <p>
+            <label>Contact Number</label>
+            <input type="tel" name="phone" id="phone">
+          </p>
+
+        <br/>
+        <h3>Medical Data</h3>
+        <br/>
+          <!-- Medical Data -->
+          <p>
+            <label>Height</label>
+            <input type="number" name="height" id="height">
+          </p>
+          <p>
+            <label>Weight</label>
+            <input type="number" name="weight" id="weight">
+          </p>
+          <p>
+            <label>BMI</label>
+            <input type="number" name="bmi" id="bmi">
+          </p>
+          <p>
+            <label>Last follow-up</label>
+            <input type="date" name="last_followup" id="last_followup">
+          </p>
+          <p class="full">
+            <label>Medical History</label>
+            <textarea name="medical_history" rows="5" id="medical_history"></textarea>
+          </p>
+
+          <!-- <br/> -->
+          <h3>Diabetic Specific Data</h3>
+          <br/>
+          <!-- Diabetic Specific Data -->
+          <p>
+            <label>Diabetic Type</label>
+            <input type="text" name="diabetic_type" id="diabetic_type">
+          </p>
+          <p>
+            <label>Date of Identification</label>
+            <input type="date" name="date_of_identification" id="date_of_identification">
+          </p>
+          <p>
+            <label>DFU Condition</label>
+            <input type="text" name="dfu_condition" id="dfu_condition">
+          </p>
+          <br/>
+          <!-- 7 + 5 + 3 = 15 -->
 
 
 
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
 
-
-
-<!-- <form style="border: solid 1px #000000; border-style: dotted";> -->
-<form stype="border-bottom: 2px solid red;">
-
-
-  <div>
-
-
-
-<label style="font-size: 24px;">
-    <input id="lamp1_radio" type="radio" name="bulb" value="bulb1" style="height:35px; width:35px; vertical-align: middle;">
-        <label style="font-size: 22px;">
-                Bulb 1
-        </label>
-        <br>
-</label>
-<br>
-
-
-<label style="font-size: 24px;">
-    <input id="lamp2_radio" type="radio" name="bulb" value="bulb2" style="height:35px; width:35px; vertical-align: middle;">
-        <label style="font-size: 22px;">
-                Bulb 2
-        </label>
-        <br>
-</label>
-<br>
-
-<label style="font-size: 24px;">
-    <input id="lamp3_radio" type="radio" name="bulb" value="bulb3" style="height:35px; width:35px; vertical-align: middle;">
-        <label style="font-size: 22px;">
-                Bulb 3
-        </label>
-        <br>
-</label>
-<br>
-
-
-<label style="font-size: 24px;">
-    <input id="lamp4_radio" type="radio" name="bulb" value="bulb4" style="height:35px; width:35px; vertical-align: middle;">
-        <label style="font-size: 22px;">
-                Bulb 4
-        </label>
-        <br>
-</label>
-<br>
-
-<label style="font-size: 24px;">
-    <input id="lamp5_radio" type="radio" name="bulb" value="bulb5" style="height:35px; width:35px; vertical-align: middle;">
-        <label style="font-size: 22px;">
-                Bulb 5
-        </label>
-        <br>
-</label>
-<br>
-
-
-
-
+        </form>
+      </div>
+    </div>
   </div>
 
+  <!-- <script src="form_submit/main.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCcNlDbs4TTjWyO1y8EBj3deI9Cmk7ZR98",
+      authDomain: "dfumonitoring.firebaseapp.com",
+      databaseURL: "https://dfumonitoring.firebaseio.com",
+      projectId: "dfumonitoring",
+      storageBucket: "dfumonitoring.appspot.com",
+      messagingSenderId: "52399712278"
+    };
+    firebase.initializeApp(config);
+  </script>
 
+  <script src="controller.js"></script>
 
-</form>
-
-
-
-
-
-    </div>
-
-
-<!-- =====================================================================================
-===================================================================================== -->
-
-<script type="text/javascript">
-
-function myOnMouseFunction() {
-
-    // Get the data
-    var rates = document.getElementsByName('bulb');
-    var rate_value;
-    for(var i = 0; i < rates.length; i++){
-      if(rates[i].checked){
-          rate_value = rates[i].value;
-      }
-    }
-
-    var res_bulb_number = rate_value.charAt(4);
-    var first_str = "TURN ON BULB ";
-    var second_str = res_bulb_number.toString();
-    var concat_str = first_str + second_str;
-    document.getElementById("Light-on-off-text").innerHTML = concat_str;
-    // document.getElementById("updateMe").innerHTML = "hey hovering in";
-    // document.getElementById("Light-on-off-text").innerHTML = "hey hovering in";
-}
-function myOutMouseFunction() {
-    // document.getElementById("updateMe").innerHTML = "hey hovering away";
-    document.getElementById("Light-on-off-text").innerHTML = "TURN ON";
-}
-
-</script>
-
-
-
-    <div  class="download-button-container" style="margin-top:260px;">
-
-        <!-- The real button -->
-        <button id="BIG_button" onmousemove="myOnMouseFunction()" onmouseout="myOutMouseFunction()" class="download-button btn-primary" onClick="myButtonWasClicked()" >
-            <span class="button-text-real hidden" id="turnon-span">TURN ON</span>
-            <!-- Extra elements to perform the animations -->
-            <span class="button-icon">
-                <span class="button-linear-progress">
-                    <span class="button-linear-progress-bar"></span>
-                </span>
-                <svg class="button-icon-svg" viewBox="0 0 60 60">
-                    <path class="button-icon-path button-icon-path-square" d="M 20 40 l 0 -20 l 20 0 l 0 20 Z"></path>
-                    <path class="button-icon-path button-icon-path-line" d="M 40 20 l -20 20"></path>
-                </svg>
-            </span>
-        </button>
-        <!-- Extra elements to perform the animations -->
-        <svg class="border-svg" width="240px" height="100px" viewBox="0 0 240 100">
-            <path class="border-path hidden" d="M 40 3.5 a 36.5 36.5 0 0 0 -36.5 36.5 a 36.5 36.5 0 0 0 36.5 36.5 C 70 76.5 90 76.5 120 76.5 S 170 76.5 200 76.5 a 36.5 36.5 0 0 0 36.5 -36.5 a 36.5 36.5 0 0 0 -36.5 -36.5 Z"></path>
-        </svg>
-        <span class="button-text button-text-download" id="Light-on-off-text">TURN ON</span>
-        <span class="button-text button-text-done" id="Feedback-button-clicked">Nothing Happened!</span>
-
-
-        <div class="button-wave"></div>
-        <div class="button-progress-container">
-            <svg class="button-svg">
-                <path class="button-circular-progress" d="M 50 50 m 0 -32.5 a 32.5 32.5 0 0 1 0 65 a 32.5 32.5 0 0 1 0 -65"></path>
-            </svg>
-            <span class="button-ball"></span>
-        </div>
-    </div>
-
-
-</div>
-
-<script src='js/anime.min.js'></script>
-<script src='js/segment.min.js'></script>
-<script src='js/demo.js'></script>
-
-
-
-<!-- =====================================================================================
-===================================================================================== -->
-
-
-
-                </div>
-            </div>
-
-			<!-- this is where new text will appear -->
-	<!-- 		<div id="updateMe">
-			</div> -->
-
-        </section>
-<!--------------------------------------------------------------------------------------->
-        <!--features-->
-        <section class="bg-light" id="features">
-            <div class="container">
-                <div class="row mb-3">
-                    <div class="col-md-6 col-sm-8 mx-auto text-center wow fadeIn">
-                        <h2 class="text-primary">  Features</h2>
-                        <p class="lead mt-4">
-                            Comply with plenty of awesome features to <br/>wow the viewers.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-
-<!--------------------------------------------------------------------------------------->
-        <!--pricing-->
-
-        <!--download-->
-
-        <!--team-->
-         <section class="bg-alt" id="team">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
-                        <h2 class="text-primary">Our Team</h2>
-                        <p class="lead pt-3">
-                            Meet our awesome team.
-                        </p>
-                    </div>
-                </div>
-                <div class="row d-md-flex mt-5 text-center">
-                    <div class="team col-sm-3 mt-2 wow fadeInLeft">
-                        <img src="/img/Madusha.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Madusha Nirmal</h5>
-                        <p>Designer - 140486F</p>
-                    </div>
-					 <div class="team col-sm-3 mt-2 wow fadeIn">
-                        <img src="/img/Chulaka.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Chulaka Lahiru</h5>
-                        <p>Designer - 140488M</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeIn">
-                        <img src="/img/Nipuna1.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Nipuna Shalitha</h5>
-                        <p>Designer - 140490L</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeInRight">
-                        <img src="/img/Ramraj.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>C. Ramraj</h5>
-                        <p>Designer - 140495G</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!--blog-->
-
-        <!--contact-->
-
-        <!--footer-->
-        <section class="bg-footer" id="connect">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
-                        <h1>OIL LAMP PROJECT</h1>
-                        <p class="mt-4">
-                            <a href="https://twitter.com/" target="_blank"><em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em></a>
-                            <a href="https://facebook.com/" target="_blank"><em class="ion-social-github text-facebook-alt icon-sm mr-3"></em></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><em class="ion-social-linkedin text-linkedin-alt icon-sm mr-3"></em></a>
-                            <a href="https://plus.google.com/" target="_blank"><em class="ion-social-googleplus text-google-alt icon-sm mr-3"></em></a>
-                        </p>
-                        <p class="pt-2 text-muted">
-                            &copy; 2018 Semester 6B - Internet of Things project - Modern Lamp
-                            Developed by IOT_Group 13
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-		<!-- import jquery library -->
-		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-
-		<!-- import paho MQTT library -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
-
-		<!-- our javascript -->
-		<script src="/js/app.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-        <script src="/js/scripts.js"></script>
-    </body>
+</body>
 </html>
